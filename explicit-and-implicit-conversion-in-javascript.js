@@ -19,14 +19,27 @@ Use console.log() to clearly show the before-and-after type conversions.
 */
 
 
-let result = "5" - 2;
+let result = "5" - 2; 
 console.log("The result is: " + result);
 
-let isValid = Boolean("false");
+let isValid = false; //I removed the boolean conversion and the quotation marks from false because having a completed string was making the value true
 if (isValid) {
     console.log("This is valid!");
 }
 
 let age = "25";
-let totalAge = age + 5;
+let totalAge = Number(age) + 5; //converts the string "age" into a number so that it'll perform the additon operation correctly
 console.log("Total Age: " + totalAge);
+
+//My Implicit Type Conversion Example
+let falsy = null; 
+if (falsy) {
+  console.log ("Can't Run!"); //Since null is a falsy, JS will implicitly change null to FALSE and not run the program
+}
+if (String(falsy)) {
+  console.log ("I Can Run!"); //Changed falsy to a string, giving it a true value, and outputting "I Can Run!"
+}
+
+//My Explicit Type Conversion Example
+let length = "2.5 feet";
+console.log(parseFloat(length)); //I am intentionally changing the string "2.5 feet" into an floating number
